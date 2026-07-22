@@ -1,11 +1,26 @@
+import { useRef } from 'react';
 import { ArrowDown, ArrowRight } from 'lucide-react';
 
 import { Container } from '../../components/Container/Container';
 import { Logo } from '../../components/Logo/Logo';
 
+import { useHeroLogoInteraction } from './useHeroLogoInteraction';
+
 import styles from './Hero.module.css';
 
 export const Hero = () => {
+  const logoAreaRef = useRef<HTMLDivElement>(null);
+  const logoSurfaceRef = useRef<HTMLDivElement>(null);
+  const logoGlowRef = useRef<HTMLDivElement>(null);
+  const logoShineRef = useRef<HTMLDivElement>(null);
+
+  const logoInteraction = useHeroLogoInteraction({
+    areaRef: logoAreaRef,
+    surfaceRef: logoSurfaceRef,
+    glowRef: logoGlowRef,
+    shineRef: logoShineRef,
+  });
+
   return (
     <section
       id="top"
@@ -21,11 +36,31 @@ export const Hero = () => {
 
       <Container>
         <div className={styles.content}>
-          <div className={styles.logoArea} aria-hidden="true">
-            <div className={styles.logoGlow} />
+          <div
+            ref={logoAreaRef}
+            className={styles.logoArea}
+            aria-hidden="true"
+            onPointerEnter={logoInteraction.onPointerEnter}
+            onPointerMove={logoInteraction.onPointerMove}
+            onPointerLeave={logoInteraction.onPointerLeave}
+          >
+            <div
+              ref={logoGlowRef}
+              className={styles.logoGlow}
+            />
 
-            <div className={styles.logoSurface}>
-              <Logo />
+            <div
+              ref={logoSurfaceRef}
+              className={styles.logoSurface}
+            >
+              <div
+                ref={logoShineRef}
+                className={styles.logoShine}
+              />
+
+              <div className={styles.logoContent}>
+                <Logo />
+              </div>
             </div>
           </div>
 
