@@ -1,0 +1,29 @@
+:root {
+  --color-background: #0a0a0c;
+  --color-surface: #111114;
+  --color-surface-elevated: #17171b;
+  --color-text-primary: #f7f7f8;
+  --color-text-secondary: #a1a1aa;
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  --color-green: #00ff66;
+  --color-purple: #8b5cf6;
+
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-green),
+    var(--color-purple)
+  );
+
+  --shadow-green: 0 0 40px rgba(0, 255, 102, 0.2);
+
+  --container-width: 1200px;
+  --container-padding: 24px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --transition-fast: 180ms ease;
+  --transition-default: 300ms ease;
+}
