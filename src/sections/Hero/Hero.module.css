@@ -89,6 +89,7 @@
 }
 
 .content {
+  position: relative;
   display: flex;
   min-height: 100svh;
   flex-direction: column;
@@ -102,9 +103,11 @@
 
 .logoArea {
   position: relative;
+  z-index: 2;
   display: grid;
   width: clamp(7rem, 25vw, 9rem);
   aspect-ratio: 1;
+  flex: 0 0 auto;
   place-items: center;
   margin-bottom: clamp(1.75rem, 5vw, 2.75rem);
   perspective: 900px;
@@ -188,6 +191,27 @@
   height: auto;
 }
 
+.copyStage {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 64rem;
+  min-height: clamp(16rem, 39vh, 25rem);
+  place-items: center;
+}
+
+.intro,
+.sequence {
+  grid-area: 1 / 1;
+  width: 100%;
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  will-change: transform, opacity;
+}
+
 .copy {
   display: flex;
   max-width: 64rem;
@@ -231,6 +255,39 @@
   text-wrap: balance;
 }
 
+.sequence {
+  display: grid;
+  min-height: clamp(10rem, 24vh, 15rem);
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  will-change: opacity;
+}
+
+.sequenceText {
+  max-width: 18ch;
+  min-height: 2.2em;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: clamp(2.35rem, 8vw, 6rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.typingCursor {
+  display: inline-block;
+  width: 0.075em;
+  height: 0.88em;
+  margin-left: 0.12em;
+  border-radius: 999px;
+  background-color: var(--color-green);
+  box-shadow: 0 0 1rem rgb(0 255 102 / 35%);
+  vertical-align: -0.06em;
+  animation: cursor-blink 0.8s steps(1, end) infinite;
+}
+
 .actions {
   display: flex;
   width: 100%;
@@ -239,6 +296,7 @@
   align-items: stretch;
   gap: 0.75rem;
   margin-top: clamp(2rem, 6vw, 3rem);
+  will-change: transform, opacity;
 }
 
 .primaryAction,
@@ -320,6 +378,7 @@
   text-decoration: none;
   transform: translateX(-50%);
   transition: color var(--transition-fast);
+  will-change: transform, opacity;
 }
 
 .scrollIndicator:hover {
@@ -347,6 +406,31 @@
   width: 0.875rem;
   height: 0.875rem;
   stroke-width: 1.75;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes cursor-blink {
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  49%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @media (min-width: 40rem) {
@@ -381,6 +465,26 @@
   }
 }
 
+@media (max-width: 47.999rem) {
+  .content {
+    padding-top: clamp(6.75rem, 15vh, 8rem);
+  }
+
+  .copyStage {
+    min-height: clamp(15rem, 38vh, 21rem);
+  }
+
+  .sequenceText {
+    max-width: 16ch;
+    min-height: 3.15em;
+    font-size: clamp(2.2rem, 10vw, 3.75rem);
+  }
+
+  .actions {
+    margin-top: 1.25rem;
+  }
+}
+
 @media (max-height: 46rem) and (min-width: 40rem) {
   .content {
     justify-content: flex-start;
@@ -393,8 +497,16 @@
     margin-bottom: 1.25rem;
   }
 
+  .copyStage {
+    min-height: 15rem;
+  }
+
   .title {
     font-size: clamp(2.75rem, 8vw, 4.5rem);
+  }
+
+  .sequenceText {
+    font-size: clamp(2.5rem, 7vw, 4rem);
   }
 
   .description {
@@ -429,13 +541,22 @@
 @media (prefers-reduced-motion: reduce) {
   .logoSurface,
   .logoGlow,
-  .logoShine {
+  .logoShine,
+  .intro,
+  .sequence,
+  .actions,
+  .scrollIndicator {
     transform: none;
     will-change: auto;
   }
 
   .logoShine {
     display: none;
+  }
+
+  .typingCursor {
+    display: none;
+    animation: none;
   }
 
   .primaryAction,
