@@ -1,3 +1,4 @@
+import { Formations } from "./sections/Formations/Formations";
 import { Header } from "./sections/Header/Header";
 import { Hero } from "./sections/Hero/Hero";
 
@@ -8,6 +9,7 @@ function App() {
 
       <main>
         <Hero />
+        <Formations />
       </main>
     </>
   );
