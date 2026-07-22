@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react';
 
-import type { FooterNavigationGroup } from '../../data/footer.data';
+import type { FooterNavigationGroup } from '../../../data/footer';
 
 import styles from './FooterColumn.module.css';
 

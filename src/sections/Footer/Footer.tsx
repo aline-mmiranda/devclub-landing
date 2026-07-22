@@ -5,9 +5,9 @@ import {
   footerNavigationGroups,
   footerSocialLinks,
   skillsLinks,
-} from '../../data/footer.data';
+} from '../../data/footer';
 
-import FooterColumn from './FooterColumn';
+import FooterColumn from '../Footer/FooterColumn/FooterColumn';
 import styles from './Footer.module.css';
 
 const currentYear = new Date().getFullYear();
