@@ -1,0 +1,84 @@
+import { ArrowDown, ArrowRight } from 'lucide-react';
+
+import { Container } from '../../components/Container/Container';
+import { Logo } from '../../components/Logo/Logo';
+
+import styles from './Hero.module.css';
+
+export const Hero = () => {
+  return (
+    <section
+      id="top"
+      className={styles.hero}
+      aria-labelledby="hero-title"
+    >
+      <div className={styles.background} aria-hidden="true">
+        <div className={styles.grid} />
+        <div className={styles.greenLight} />
+        <div className={styles.purpleLight} />
+        <div className={styles.vignette} />
+      </div>
+
+      <Container>
+        <div className={styles.content}>
+          <div className={styles.logoArea} aria-hidden="true">
+            <div className={styles.logoGlow} />
+
+            <div className={styles.logoSurface}>
+              <Logo />
+            </div>
+          </div>
+
+          <div className={styles.copy}>
+            <p className={styles.eyebrow}>
+              Sua carreira em tecnologia começa aqui
+            </p>
+
+            <h1 id="hero-title" className={styles.title}>
+              Aprenda programação.
+              <span className={styles.titleHighlight}>
+                Construa o seu futuro.
+              </span>
+            </h1>
+
+            <p className={styles.description}>
+              Domine as tecnologias mais desejadas pelo mercado e desenvolva
+              projetos reais ao lado de uma comunidade que transforma
+              estudantes em profissionais de tecnologia.
+            </p>
+          </div>
+
+          <div className={styles.actions}>
+            <a
+              className={styles.primaryAction}
+              href="#formacoes"
+              aria-label="Conhecer as formações do DevClub"
+            >
+              Começar minha jornada
+              <ArrowRight aria-hidden="true" />
+            </a>
+
+            <a
+              className={styles.secondaryAction}
+              href="#plataforma"
+            >
+              Conhecer a plataforma
+            </a>
+          </div>
+
+          <a
+            className={styles.scrollIndicator}
+            href="#formacoes"
+            aria-label="Ir para a próxima seção"
+          >
+            <span className={styles.scrollLabel}>Explore</span>
+
+            <span className={styles.scrollIcon} aria-hidden="true">
+              <ArrowDown />
+            </span>
+          </a>
+        </div>
+      </Container>
+    </section>
+  );
+};
