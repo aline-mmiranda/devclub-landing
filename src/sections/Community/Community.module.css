@@ -1,0 +1,163 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(6rem, 12vw, 10rem);
+  background: #0a0a0c;
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 18%,
+    black 78%,
+    transparent
+  );
+  opacity: 0.55;
+}
+
+.greenGlow {
+  position: absolute;
+  top: 8%;
+  right: -20rem;
+  width: 36rem;
+  height: 36rem;
+  border-radius: 50%;
+  background: rgba(0, 255, 102, 0.07);
+  filter: blur(8rem);
+}
+
+.purpleGlow {
+  position: absolute;
+  bottom: 3%;
+  left: -18rem;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.07);
+  filter: blur(8rem);
+}
+
+.header {
+  max-width: 52rem;
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  color: #00ff66;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  content: '';
+  opacity: 0.75;
+}
+
+.title {
+  max-width: 50rem;
+  margin: 0;
+  color: #f5f5f5;
+  font-size: clamp(2.7rem, 7.5vw, 6rem);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.title span {
+  color: #a1a1aa;
+}
+
+.description {
+  max-width: 38rem;
+  margin: 1.5rem 0 0;
+  color: #a1a1aa;
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.2rem);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.testimonials {
+  display: grid;
+  gap: 1rem;
+}
+
+.masonry {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.masonryItem {
+  width: 100%;
+}
+
+@media (min-width: 40rem) {
+  .testimonials {
+    gap: 1.25rem;
+  }
+
+  .masonry {
+    display: block;
+    column-count: 2;
+    column-gap: 1.25rem;
+  }
+
+  .masonryItem {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    break-inside: avoid;
+  }
+}
+
+@media (min-width: 64rem) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 80rem) {
+  .testimonials {
+    gap: 1.5rem;
+  }
+
+  .masonry {
+    column-gap: 1.5rem;
+  }
+
+  .masonryItem {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    scroll-behavior: auto;
+  }
+}
