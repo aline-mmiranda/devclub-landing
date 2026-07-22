@@ -1,0 +1,141 @@
+.accordion {
+  display: grid;
+  border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.item {
+  position: relative;
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease;
+}
+
+.item::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(0 255 102 / 5%),
+      transparent 65%
+    );
+  content: '';
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease;
+}
+
+.item[data-open='true'] {
+  border-bottom-color: rgb(0 255 102 / 24%);
+}
+
+.item[data-open='true']::before {
+  opacity: 1;
+}
+
+.heading {
+  margin: 0;
+}
+
+.trigger {
+  display: flex;
+  width: 100%;
+  min-height: 5.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border: 0;
+  color: var(--color-text-primary, #f5f5f5);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.trigger:focus-visible {
+  border-radius: 0.75rem;
+  outline: 2px solid var(--color-primary, #00ff66);
+  outline-offset: 0.375rem;
+}
+
+.question {
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  transition: color 200ms ease;
+}
+
+.iconWrapper {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 50%;
+  color: var(--color-text-secondary, #a1a1aa);
+  background: rgb(255 255 255 / 3%);
+  transition:
+    color 200ms ease,
+    border-color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.trigger:hover .question,
+.item[data-open='true'] .question {
+  color: var(--color-primary, #00ff66);
+}
+
+.trigger:hover .iconWrapper,
+.item[data-open='true'] .iconWrapper {
+  border-color: rgb(0 255 102 / 35%);
+  color: var(--color-primary, #00ff66);
+  background: rgb(0 255 102 / 8%);
+  box-shadow: 0 0 1.5rem rgb(0 255 102 / 8%);
+}
+
+.panel {
+  overflow: hidden;
+}
+
+.panelContent {
+  padding: 0 3.75rem 1.75rem 0;
+}
+
+.panelContent p {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--color-text-secondary, #a1a1aa);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+@media (min-width: 48rem) {
+  .trigger {
+    min-height: 6rem;
+    padding-block: 1.5rem;
+  }
+
+  .panelContent {
+    padding-bottom: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .item::before,
+  .question,
+  .iconWrapper {
+    transition: none;
+  }
+}
