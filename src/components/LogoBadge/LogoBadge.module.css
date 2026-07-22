@@ -1,0 +1,80 @@
+.badge {
+  --accent: #ffffff;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  min-width: max-content;
+
+  padding: 0.9rem 1.4rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+
+  color: #8b8b95;
+
+  transition:
+    color 250ms ease,
+    border-color 250ms ease,
+    background 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.badge:hover,
+.badge:focus-visible {
+  color: var(--accent);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: inherit;
+}
+
+.label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.ifood {
+  --accent: #ea1d2c;
+}
+
+.oab {
+  --accent: #c89a3c;
+}
+
+.ufrj {
+  --accent: #005baa;
+}
+
+.usp {
+  --accent: #ffb000;
+}
+
+.ambev {
+  --accent: #009cde;
+}
+
+@media (max-width: 768px) {
+  .badge {
+    padding: 0.8rem 1.1rem;
+    gap: 0.6rem;
+  }
+
+  .label {
+    font-size: 0.875rem;
+  }
+}
