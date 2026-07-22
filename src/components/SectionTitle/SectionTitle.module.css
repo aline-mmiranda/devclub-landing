@@ -1,0 +1,66 @@
+.sectionTitle {
+  display: flex;
+  flex-direction: column;
+  max-width: 760px;
+}
+
+.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.center {
+  align-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--color-green);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrowIndicator {
+  width: 24px;
+  height: 1px;
+  background: var(--gradient-primary);
+  box-shadow: 0 0 12px rgba(0, 255, 102, 0.35);
+}
+
+.title {
+  max-width: 18ch;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.description {
+  max-width: 62ch;
+  margin: 24px 0 0;
+  color: var(--color-text-secondary);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+@media (max-width: 479px) {
+  .eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .description {
+    margin-top: 18px;
+  }
+}

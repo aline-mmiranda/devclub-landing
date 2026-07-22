@@ -1,0 +1,121 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition:
+    color var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.logo:hover {
+  color: var(--color-green);
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 5px;
+}
+
+.mark {
+  position: relative;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--color-green);
+}
+
+.mark::before {
+  position: absolute;
+  inset: 18%;
+  z-index: -1;
+  border-radius: 50%;
+  background: var(--color-green);
+  content: "";
+  opacity: 0;
+  filter: blur(14px);
+  transition: opacity var(--transition-default);
+}
+
+.logo:hover .mark::before {
+  opacity: 0.2;
+}
+
+.symbol {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.symbolFrame {
+  fill: var(--color-surface);
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.symbolLetter {
+  fill: currentColor;
+}
+
+.symbolAccent {
+  fill: none;
+  stroke: var(--color-purple);
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+
+.wordmark {
+  color: inherit;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.wordmark span {
+  color: var(--color-green);
+}
+
+.small {
+  gap: 9px;
+}
+
+.small .mark {
+  width: 30px;
+  height: 30px;
+}
+
+.small .wordmark {
+  font-size: 1rem;
+}
+
+.medium .mark {
+  width: 38px;
+  height: 38px;
+}
+
+.medium .wordmark {
+  font-size: 1.25rem;
+}
+
+.large {
+  gap: 16px;
+}
+
+.large .mark {
+  width: 52px;
+  height: 52px;
+}
+
+.large .wordmark {
+  font-size: 1.625rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .mark::before {
+    transition: none;
+  }
+}
