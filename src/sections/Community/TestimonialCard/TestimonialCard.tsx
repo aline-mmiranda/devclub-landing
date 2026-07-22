@@ -1,5 +1,5 @@
 import { motion, type Variants } from 'motion/react';
-import type { CommunityTestimonial } from '../../data/communityTestimonials';
+import type { CommunityTestimonial } from '../../../data/communityTestimonials';
 import styles from './TestimonialCard.module.css';
 
 interface TestimonialCardProps {

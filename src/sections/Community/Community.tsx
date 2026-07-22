@@ -4,7 +4,7 @@ import {
   featuredCommunityTestimonial,
 } from '../../data/communityTestimonials';
 import { Container } from '../../components/Container/Container';
-import { TestimonialCard } from './TestimonialCard';
+import { TestimonialCard } from './TestimonialCard/TestimonialCard';
 import styles from './Community.module.css';
 
 const headingVariants: Variants = {
