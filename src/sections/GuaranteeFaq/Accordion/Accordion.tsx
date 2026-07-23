@@ -11,7 +11,7 @@ import {
 } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 
-import type { FaqItem } from '../../data/guaranteeFaq.data';
+import type { FaqItem } from '../../../data/guaranteeFaq';
 
 import styles from './Accordion.module.css';
 

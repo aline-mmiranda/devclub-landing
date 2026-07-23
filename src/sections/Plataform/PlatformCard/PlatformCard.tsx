@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 
-import type { PlatformModule } from '../../data/platformModules';
+import type { PlatformModule } from '../../../data/platformModules';
 
 import styles from './PlatformCard.module.css';
 

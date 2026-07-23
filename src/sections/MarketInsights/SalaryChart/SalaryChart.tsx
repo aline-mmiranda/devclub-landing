@@ -1,9 +1,10 @@
 import { motion, useReducedMotion } from 'motion/react';
 
 import type {
+  CareerLevel,
   SalaryData,
   SalaryMarket,
-} from '../../data/marketInsights';
+} from '../../../data/marketInsights';
 
 import styles from './SalaryChart.module.css';
 
@@ -23,7 +24,7 @@ const getBarSizeClass = (
   marketId: SalaryMarket['id'],
   level: SalaryData['level'],
 ): string => {
-  const sizeClasses = {
+  const sizeClasses: Record<SalaryMarket['id'], Record<CareerLevel, string>> = {
     brazil: {
       Júnior: styles.brazilJunior,
       Pleno: styles.brazilMid,
@@ -133,7 +134,7 @@ export const SalaryChart = ({
   const shouldReduceMotion = useReducedMotion();
 
   const maximumValue = Math.max(
-    ...market.salaries.map((salary) => salary.value),
+    ...market.salaries.map((salary: SalaryData) => salary.value),
   );
 
   return (
@@ -186,7 +187,7 @@ export const SalaryChart = ({
       </p>
 
       <ol className={styles.salaryList}>
-        {market.salaries.map((salary, salaryIndex) => (
+        {market.salaries.map((salary: SalaryData, salaryIndex: number) => (
           <SalaryBar
             key={`${market.id}-${salary.level}`}
             salary={salary}

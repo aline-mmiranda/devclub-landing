@@ -1,3 +1,4 @@
+import type React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import type { EcosystemItem } from '../../../data/ecosystem';
 import styles from './EcosystemCard.module.css';
@@ -37,7 +38,7 @@ const gridClasses: Record<EcosystemItem['gridClass'], string> = {
 export const EcosystemCard = ({
   item,
   index,
-}: EcosystemCardProps): JSX.Element => {
+}: EcosystemCardProps): React.JSX.Element => {
   const shouldReduceMotion = useReducedMotion();
   const Icon = item.icon;
 

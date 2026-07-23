@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react';
 
-import type { BonusExpert } from '../../data/bonusExperts';
+import type { BonusExpert } from '../../../data/bonusExperts';
 
 import styles from './ExpertCard.module.css';
 

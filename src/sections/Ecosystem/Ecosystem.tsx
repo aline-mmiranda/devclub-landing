@@ -1,10 +1,11 @@
+import type React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Container } from '../../components/Container/Container';
 import { ecosystemItems } from '../../data/ecosystem';
 import { EcosystemCard } from './EcosystemCard/EcosystemCard';
 import styles from './Ecosystem.module.css';
 
-export const Ecosystem = (): JSX.Element => {
+export const Ecosystem = (): React.JSX.Element => {
   const shouldReduceMotion = useReducedMotion();
 
   return (

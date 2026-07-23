@@ -66,6 +66,7 @@ export const useHeader = (): UseHeaderReturn => {
     }
 
     const menu = mobileMenuRef.current;
+    const menuButton = menuButtonRef.current;
 
     if (!menu) {
       return;
@@ -121,7 +122,7 @@ export const useHeader = (): UseHeaderReturn => {
 
       if (
         previousActiveElement &&
-        previousActiveElement !== menuButtonRef.current
+        previousActiveElement !== menuButton
       ) {
         previousActiveElement.focus();
       }

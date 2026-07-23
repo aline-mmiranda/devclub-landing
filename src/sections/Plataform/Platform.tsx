@@ -2,7 +2,7 @@ import { ArrowRight, Layers3, Sparkles } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 
 import { platformModules } from '../../data/platformModules';
-import { PlatformCard } from './PlatformCard';
+import { PlatformCard } from './PlatformCard/PlatformCard';
 
 import styles from './Platform.module.css';
 

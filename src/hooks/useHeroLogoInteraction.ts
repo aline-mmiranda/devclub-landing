@@ -1,6 +1,7 @@
 import {
   type PointerEvent as ReactPointerEvent,
   type RefObject,
+  useCallback,
   useEffect,
   useRef,
 } from 'react';
@@ -63,7 +64,7 @@ export const useHeroLogoInteraction = ({
   const settersRef = useRef<QuickSetters | null>(null);
   const interactionEnabledRef = useRef(false);
 
-  const updateBounds = (): void => {
+  const updateBounds = useCallback((): void => {
     const area = areaRef.current;
 
     if (!area) {
@@ -79,7 +80,7 @@ export const useHeroLogoInteraction = ({
       width: bounds.width,
       height: bounds.height,
     };
-  };
+  }, [areaRef]);
 
   useEffect(() => {
     const area = areaRef.current;
@@ -191,7 +192,7 @@ export const useHeroLogoInteraction = ({
 
       context.revert();
     };
-  }, [areaRef, glowRef, shineRef, surfaceRef]);
+  }, [areaRef, glowRef, shineRef, surfaceRef, updateBounds]);
 
   const handlePointerEnter = (
     event: ReactPointerEvent<HTMLDivElement>,

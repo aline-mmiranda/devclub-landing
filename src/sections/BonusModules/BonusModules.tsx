@@ -4,7 +4,7 @@ import { bonusExperts } from '../../data/bonusExperts';
 import { Container } from '../../components/Container/Container';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 
-import { ExpertCard } from './ExpertCard';
+import { ExpertCard } from './ExpertCard/ExpertCard';
 
 import styles from './BonusModules.module.css';
 

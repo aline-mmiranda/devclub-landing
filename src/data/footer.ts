@@ -1,10 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import {
-  Github,
-  Instagram,
-  Linkedin,
-  Youtube,
-} from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 export interface FooterLink {
   label: string;
@@ -117,21 +112,21 @@ export const footerSocialLinks: FooterSocialLink[] = [
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/',
-    icon: Instagram,
+    icon: ExternalLink,
   },
   {
     label: 'YouTube',
     href: 'https://www.youtube.com/',
-    icon: Youtube,
+    icon: ExternalLink,
   },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/',
-    icon: Linkedin,
+    icon: ExternalLink,
   },
   {
     label: 'GitHub',
     href: 'https://github.com/',
-    icon: Github,
+    icon: ExternalLink,
   },
 ];
